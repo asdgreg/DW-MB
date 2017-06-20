@@ -1,9 +1,68 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<meta charset="utf-8">
+	<title>Registro</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+
 </head>
 <body>
+<!--div class="container"-->
+	<div class="form-horizontal container">
+		<h1>Registro</h1>
+		  <div class="form-group">
+		    <label class="col-sm-2 control-label">Usuario</label>
+		    <div class="col-sm-6">
+		      <input type="text" class="form-control" name="txt-usuario" id="txt-usuario" placeholder="Usuario">
+		    </div>
+		  </div>
 
+		  <div class="form-group">
+		    <label class="col-sm-2 control-label">Nombre</label>
+		    <div class="col-sm-6">
+		      <input type="text" class="form-control" name="txt-nombre" id="txt-nombre" placeholder="Nombre Completo">
+		    </div>
+		  </div>
+
+		  <div class="form-group">
+		    <label class="col-sm-2 control-label">Correo</label>
+		    <div class="col-sm-6">
+		      <input type="email" class="form-control" name="txt-correo" id="txt-correo" placeholder="ejemplo@mail.com">
+		    </div>
+		  </div>
+
+		  <div class="form-group">
+		    <label class="col-sm-2 control-label">Contrasena</label>
+		    <div class="col-sm-6">
+		      <input type="password" class="form-control" name="txt-pass" id="txt-pass" placeholder="contrasena">
+		    </div>
+		  </div>
+
+		   <div class="form-group">
+		    <label class="col-sm-2 control-label">Verificar Contrasena</label>
+		    <div class="col-sm-6">
+		      <input type="password" class="form-control" name="txt-verpass" id="txt-verpass" placeholder="Verificar contrasena">
+		    </div>
+		  </div>
+
+		  <div class="col-sm-2"></div>
+		  <div class="container" id="mensajes"></div>
+
+		   <div class="form-group">
+		    <label class="col-sm-2 control-label"></label>
+		    <div class="col-sm-6">
+		      <button class="btn btn-success btn-group-justified" onclick="verificacion();">Registrar</button>
+		    </div>
+		  </div>
+		<hr>
+		   <div class="form-group">
+		    <label class="col-sm-2 control-label"></label>
+		    <div class="col-sm-6">
+		      <button class="btn btn-primary ">FACEBOOK</button>
+		    </div>
+		  </div>
+	</div>
+
+<script type="text/javascript" src="js/registro.js"></script>
 </body>
 </html>
