@@ -1,9 +1,31 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<meta charset="utf-8">
+	<title>Buscar Proyecto</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+<!--
+	<link rel="stylesheet" type="text/css" href="css/freelancer.css">
+-->
+</head>
 </head>
 <body>
+<div class="form-horizontal container">
+		<h1>Buscar Proyectos</h1>
+		  <div class="form-group">
+		    <label class="col-sm-2 control-label">Buscar:</label>
+		    <div class="col-sm-6">
+		      <input type="text" class="form-control" name="txt-buscar" id="txt-buscar" placeholder="INGRESA TU BUSQUEDA AQUI">
+		    </div>
+		    <div class="col-sm-2">
+		      <button class="btn btn-success" onclick="verificacion();">BUSCAR</button>
+		    </div>
 
+		  </div>
+		  <div class="col-sm-2"></div>
+		  <div class="container" id="mensajes"></div>
+		<hr>
+	</div>
+<script type="text/javascript" src="js/buscar.js"></script>
 </body>
 </html>
