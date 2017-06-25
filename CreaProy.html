@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta charset="utf-8">
+	<title>Money Base - Creacion de proyectos.</title>
+	<link rel="icon" href="img/icon.jpg" sizes="16x16" type="image/jpg">
+    <link rel="stylesheet" href="css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="main.css">
+	<link rel="stylesheet" type="text/css" href="timepicker/jquery.datetimepicker.css"/>
+	<style type="text/css">
+		body{
+	background-image: url(img/firm.jpg);
+	background-position: center center;
+	background-attachment: fixed;
+	/*background-repeat: no-repeat;*/
+}
+#pre{
+	background-color: rgba(0,0,100,0.5);
+	border: 2px solid #CCC;
+  padding: 1em;
+  margin: 1em 0 1em 4em;
+  width: 1200px;
+}
+	</style>
+}
+</head>
+<body>
+<!-- definir contenedor-->
+<div class="container cuadro" id="pre">
+<h1 style="color: #FFF">Registro de un Nuevo Proyecto.</h1>
+<p style="color: #FFF">presione registrar e ingrese los datos que se le van solicitando.</p>
+<hr>
+
+    <div class="row bs-wizard" style="border-bottom: 0;">
+    	<a href="#miModal" role="button" class="btn btn-default btn-lg btn-primary" data-toggle="modal">Registrar</a>
+    </div>
+	
+</div>
+<!-- Modal
+Fade: Transición
+Role: semántica
+aria-hidden: oculto
+aria-labelledby: título del modal
+-->
+<div id="miModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="miModalLabel" aria-hidden="true">
+ <!-- Tamaño y forma de la ventana del modal -->
+ <div class="modal-dialog">
+  <!-- Contenedor sólido para el contenido del modal -->
+  <div class="modal-content">
+  <!-- Encabezado del modal -->
+<div class="modal-header">
+Money Base
+<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+<h3 id="miModalLabel">Formulario de Registro de Proyectos.</h3>
+</div>
+<!-- Cuerpo del modal, en donde están todos los el contenido -->
+<div class="modal-body" id="miAsistente">
+
+<!-- Progress bar, color verde -->
+<div class="progress" style="height: 20px">
+<div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="1" aria-valuemin="1" aria-valuemax="4" style="width: 20%; height: 20px">
+Paso 1 de 4
+</div>
+</div>
+
+<!-- Enlaces de navegación a todas las tab -->
+<div class="navbar">
+<!-- barra de navegación ajustada -->
+<div class="navbar-inner col-md-offset-2">
+<!-- Lista desordenada, (nav-pillis convierte de enlaces texto a botones) -->
+<ul class="nav nav-pills">
+<li class="active paso"><a href="#paso1" data-toggle="tab" data-paso="1"><span class="glyphicon glyphicon-camera"></span> Generalidades</a></li>
+<li class="paso"><a href="#paso2" data-toggle="tab" data-paso="2"><span class="glyphicon glyphicon-list-alt"></span> Información</a></li>
+<li class="paso"><a href="#paso3" data-toggle="tab" data-paso="3"><span class="glyphicon glyphicon-euro"></span> Recaudación</a></li>
+<li class="paso"><a href="#paso4" data-toggle="tab" data-paso="4"><span class="glyphicon glyphicon glyphicon-floppy-saved"></span> Fin</a></li>
+</ul>
+</div>
+</div>
+
+<!-- Contenido de todos los tabs -->
+<div class="tab-content">
+<!-- Tab "paso1",
+active: inicialmente activa
+fade: transición
+-->
+<div class="tab-pane fade in active" id="paso1" name="paso-uno">
+<!-- Recuadro que engloba los controles de entrada -->
+<div class="well">
+<label>Nombre del Proyecto</label>
+<input class="form-control input-lg" id="txt-nombreP">
+<br>
+<label>Area de Desarrollo</label>
+<select class="form-control"  name="slc-area" id="slc-area">
+  		<option value="1">area1</option>
+  		<option value="2">area2</option>
+  		<option value="3">area3</option>
+  		<option value="4">area4</option>	
+  		</select>
+<br>
+<label>Suba una imagenes de su proyecto.(de preferencia todas del mismo tamaño)</label>
+<input type="file" id="InputImage1"><br>
+<input type="file" id="InputImage1"><br>
+<input type="file" id="InputImage1"><br><br>
+</div>
+<a class="btn btn-default next" id="con1" href="#paso-dos" onclick="validaCon1();">Continuar</a>
+</div>
+<!-- Tab "paso2" -->
+<div class="tab-pane fade" id="paso2" name="paso-dos">
+<!-- Recuadro que engloba los controles de entrada -->
+<div class="well">
+<label><span class="glyphicon glyphicon-leaf"></span> Descripcion</label>
+<textarea class="form-control" rows="4" placeholder="Descripcion del proyecto"></textarea><br>
+<br>
+<label><span class="glyphicon glyphicon-globe"></span> Página Web</label>
+<input class="form-control input-lg">
+</div>
+<a class="btn btn-default next" id="con2" href="#paso-tres">Continuar</a>
+</div>
+<!-- Tab "paso3" -->
+<div class="tab-pane fade" id="paso3" name="paso-tres">
+<!-- Recuadro que engloba los controles de entrada -->
+<div class="well"> <h2>Ya Casi!</h2>Ingresa tu información del tiempo y monto a recaudar.</div>
+<label><span class="glyphicon glyphicon-euro"></span> Monto</label>
+<input class="form-control input-lg" id="idmail" type="number" placeholder="8888888">
+<br>
+<label><span class="glyphicon glyphicon-calendar"> Fecha de Inicio</label>
+<input class="form-control input-lg" type="text" id="default_datetimepicker"/><br>
+<br>
+<label><span class="glyphicon glyphicon-calendar"> Fecha de Termino</label>
+<input class="form-control input-lg" type="text" id="default_datetimepicker"/><br><br>
+<a class="btn btn-default next" id="con3" href="#paso-cuatro">Continuar</a>
+</div>
+<!-- Tab "paso4" -->
+<div class="tab-pane fade" id="paso4" name="paso-cuatro">
+<!-- Recuadro que engloba los controles de entrada -->
+<div class="well"> <h2>Has finalizado!</h2> Felicidades!, Para continuar con el registro haz clic en enviar.</div>
+<a class="btn btn-success first" id="vlver" href="#paso-uno">Volver a Empezar.</a>
+</div>
+</div>
+</div>
+<!-- Fin del contenido del modal -->
+</div>
+<!-- Pié del modal -->
+<div class="modal-footer">
+<button class="btn" data-dismiss="modal" aria-hidden="true">Cerrar</button>
+<button class="btn btn-primary">Enviar</button>
+</div>
+</div>
+</div>
+
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/bootstrap.js"></script>
+<script src="timepicker/build/jquery.datetimepicker.full.js"></script>
+<script type="text/javascript" src="js/timepickProy.js"></script>
+
+<script type="text/javascript">
+	  function validaCon1(){
+	var errores = false;
+	var listaErrores = "";
+	if(document.getElementById("txt-nombreP").value){
+		document.getElementById("txt-nombreP").style.borderColor = "#ccc";
+	}else{
+		document.getElementById("txt-nombreP").style.borderColor = "#FF0000";
+		errores = true;
+		listaErrores +="<li>El campo nombre esta vacio</li>";
+	}
+
+	
+	if (errores){
+		document.getElementById("resultado-validacion").innerHTML = "<ul>"+listaErrores+"</ul>";
+	}else{
+		document.getElementById("resultado-validacion").innerHTML = "Registro almacenado con exito";
+		document.getElementById("tbl-registros").innerHTML += 
+		"<tr><td>"+document.getElementById("txt-nombreP").value+"</td><td>"+document.getElementById("slc-area").value+"</td></tr>";
+	}
+
+}
+
+</script>
+
+
+</body>
+</html>
