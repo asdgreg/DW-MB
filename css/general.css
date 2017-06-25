@@ -3,3 +3,33 @@
 		border-bottom-color: #FFDD00;
 		padding: 20px;
 	}
+
+	.baseDorada{
+		border-bottom-color:  #FFDD00;  
+
+	} 
+
+	.ancho {
+		border: 8%;
+	}
+
+	.jumbotron {
+		background-color: #FFFADA;
+	}
+	.panel-body{
+		height: 150px;
+	}
+
+	.progress {
+		border-radius: 0;
+		max-height: 10px;
+		margin: 1px;
+	}
+
+	.progress-bar {
+		background-color: #FFDD00;
+	}
+	
+
+
+	
