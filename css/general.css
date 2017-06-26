@@ -1,3 +1,7 @@
+	body{
+		background-color: #eeeeee;
+	}
+
 	.navbar-default{
 		background-color:white;
 		border-bottom-color: #FFDD00;
@@ -20,6 +24,10 @@
 		height: 150px;
 	}
 
+	.panel:hover{
+		border-color: #FFD000;
+	}
+
 	.progress {
 		border-radius: 0;
 		max-height: 10px;
@@ -30,6 +38,7 @@
 		background-color: #FFDD00;
 	}
 	
-
-
-	
+	.imgProyecto{
+		width: 100%;
+		height: 150px;
+	}
