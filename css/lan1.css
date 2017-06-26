@@ -1,0 +1,105 @@
+
+		.btn-rounded-bor {
+          padding: 13px 40px;
+          font-size: 16px;
+          border-radius: 30px;
+        }
+        .avatar {
+          /* cambia estos dos valores para definir el tamaño de tu círculo */
+          height: 300px;
+          width: 300px;
+          /* los siguientes valores son independientes del tamaño del círculo */
+          background-repeat: no-repeat;
+          background-position: 50%;
+          border-radius: 45%;
+          background-size: 100% auto;
+        }
+        #lema{
+        	position: center;
+        	border-radius: 20px;
+        	background-color: #e7e7e7;
+        	margin-left: 450px;
+        	margin-right: 450px;
+        }
+        .line {
+         height: 6px;
+         background-color: #e7e7e7;
+         width: 100%;
+        }
+        .line1 {
+         height: 6px;
+         background-color: #f0ba14;
+         width: 35%;
+        }
+        .cause-bottom {
+          border: 2px solid #f4f4f4;
+          border-top: none;
+          border-radius: 0 0 4px 4px;
+          overflow: auto;
+        }
+        .cause-goal, .cause-remaining {
+          border-right: 1px solid #e3e3e3;
+        }
+        .cause-b-title {
+         font-size: 12px;
+        }
+        .goal-num, .remaining-num {
+         font-size: 18px;
+         font-weight: 700;
+        }
+        .how-work-item {
+          margin-bottom: 40px;
+        }
+        .circle {
+         width: 100px;
+         height: 100px;
+         border-radius: 100%;
+         margin: 0 auto;
+         text-align: center;
+         display: table;
+        }
+        .icon1{
+          color: #fff;
+          font-size: 40px;
+          display: table-cell;
+          vertical-align: middle;
+        } 
+        .text1 {
+          font-size: 14px;
+          margin-left: 0;
+          margin-right: 0;
+          background-color: #f4f4f4;
+          border-radius: 5px;
+          margin: 33px 30px 0;
+          padding: 25px 55px;
+          text-align: center;
+          line-height: 24px;
+          position: relative;
+        }
+        .footer-about{
+        	padding-bottom: 40px;
+        }
+        .footer-heading {
+          font-size: 18px;
+          color: #fff;
+          position: relative;
+          margin-bottom: 55px;
+          margin-top: 2px;
+        }
+        .footer-heading:after {
+          content: "";
+          width: 40px;
+          height: 2px;
+          background-color: #f0ba14;
+          position: absolute;
+          z-index: 1;
+          left: 0;
+          bottom: -19px;
+        }
+        .ft{
+        	width: 200px;
+        	height: 300px;
+        	border-radius: 10%;
+        	margin-right: 35px;
+        	margin-left: 170px;
+        }
