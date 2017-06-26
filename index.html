@@ -1,9 +1,232 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>Money Base - Inicio</title>
+	<link rel="icon" type="image/jpg" href="img/icon.jpg" sizes="16x16">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/lan1.css">
+	<style type="text/css">
+		#contenedor1{
+	    	background-color: #000;
+	    	height: 508px;
+            background-image: url(img/emprendedores.jpg);
+            background-repeat: no-repeat;
+            background-position: center; 
+            background-attachment: fixed;
+	    }
+	    #contenedor3{
+	    	background-color: #fff;
+	    	height: 508px;
+            background-attachment: fixed;
+	    }
+	    #contenedor4{
+	    	background-color: #000;
+	    	height: 508px;
+            background-attachment: fixed;
+	    }
+	</style>
 </head>
 <body>
+<!-- BARRA NAVEGACION -->
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>	
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Money Base</a>
+    </div>
 
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Buscar<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">Tendencia</a></li>
+            <li><a href="#">Recientes</a></li>
+          </ul>
+        </li>
+      </ul>
+      <form class="navbar-form navbar-left" role="search" action="buscar.html">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="...">
+        </div>
+        <button type="submit" class="btn btn-default">Buscar</button>
+      </form>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="sesion.html">Iniciar Sesion</a></li>
+        <li><a href="registro.html">Registrarse</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<!-- FIN BARRA NAVEGACION -->
+
+<div id="contenedor1">
+ <div id="center" class="main-slider-wrap">
+   <div style="margin-right: auto; margin-left: 500px; margin-bottom: auto;"><img class="avatar" src="img/mb1.png"></div>
+   <div id="lema" style=""><h1 style="text-align: center;">Crea, Emprende, Desarrolla</h1></div><br><br><br>
+ 	<button class="btn-rounded-bor"><a href="registro.html">Registrarse</a></button>
+ </div>
+</div>
+<hr>
+
+<div id="contenedor2">
+ <!--vista previa-->
+  <div class="row">
+
+  <!--primer elemento-->
+   <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+     <div class="thumbnail">
+       <a href="detalleProyecto.html"><img src="img/portfolio/game.png" width="300" height="300" alt="Generic placeholder thumbnail"></a>
+       <div class="caption">
+         <h3>Proyectos de Tecnologia</h3>
+         <p>propuestas que puenden dar soluciones tecnologicas a los problemas cotidianos.</p>
+         <!-- regla de 3 en la barra, 100% = 400px ejem: (35% * 400px)/100%=140px-->
+         <div class="line"><div class="line1" style="width: 140px;"></div></div>
+         <br>
+         <div class="cause-bottom">
+        	<div class="cause-remaining">
+        	  <div class="cause-b-title">Recaudado</div>
+        	  <div class="remaining-num">$35,000</div>
+        	</div>
+        	<div class="cause-goal">
+        	  <div class="cause-b-title">Meta</div>
+        	  <div class="goal-num">$100,000</div>
+        	</div>
+         </div>
+      </div>
+     </div>
+   </div><!--fin del primer elemento-->
+
+   <!--segundo elemento-->
+   <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+   	 <div class="thumbnail">
+      <a href="detalleProyecto.html"><img src="img/portfolio/submarine.png" width="300" height="300" alt="Generic placeholder thumbnail"></a>
+      <div class="caption">
+        <h3>Proyectos de Tecnologia</h3>
+        <p>propuestas que puenden dar soluciones tecnologicas a los problemas cotidianos.</p>
+        <!-- regla de 3 en la barra, 100% = 400px ejem: (70% * 400px)/100%=280px-->
+        <div class="line"><div class="line1" style="width: 280px;"></div></div>
+        <br>
+        <div class="cause-bottom">
+        	<div class="cause-remaining">
+        	  <div class="cause-b-title">Recaudado</div>
+        	  <div class="remaining-num">$140,000</div>
+        	</div>
+        	<div class="cause-goal">
+        	  <div class="cause-b-title">Meta</div>
+        	  <div class="goal-num">$200,000</div>
+        	</div>
+        </div>
+      </div>
+     </div>
+   </div><!--fin del segundo elemento-->
+
+    <!--tercer elemento-->
+    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+     <div class="thumbnail">
+       <a href="detalleProyecto.html"><img src="img/portfolio/safe.png" width="300" height="300" alt="Generic placeholder thumbnail"></a>
+       <div class="caption">
+         <h3>Proyectos de Tecnologia</h3>
+         <p>propuestas que puenden dar soluciones tecnologicas a los problemas cotidianos.</p>
+         <!-- regla de 3 en la barra, 100% = 400px ejem: (40% * 400px)/100%=160px-->
+         <div class="line"><div class="line1" style="width: 160px;"></div></div>
+         <br>
+         <div class="cause-bottom">
+         	<div class="cause-remaining">
+         	  <div class="cause-b-title">Recaudado</div>
+         	  <div class="remaining-num">$20,000</div>
+         	</div>
+         	<div class="cause-goal">
+         	  <div class="cause-b-title">Meta</div>
+         	  <div class="goal-num">$50,000</div>
+         	</div>
+         </div>
+       </div>
+     </div>
+    </div><!--fin del tercer elemento-->
+
+  </div>
+</div>
+<hr>
+
+<div id="contenedor3">
+ <div class="row">
+  <br>
+    <!--primer container-->
+    <div class="col-sm-4">
+    	<div class="how-work-item">
+    	  <div class="circle" style="background-color: #f0ba14;">
+    	    <br><br>
+    	  	<span class="glyphicon glyphicon-bitcoin icon1"></span>
+    	  </div>
+    	  <div class="text1"><h3>Busca Fondos</h3>Busca reunir el capital para emprender.  Logrando alcanzar tus metas. Ofreciendo buenas ideas y/o productos.<br> </div>
+    	</div>
+    </div><!--fin primer container-->
+
+    <!--segundo container-->
+    <div class="col-sm-4">
+    	<div class="how-work-item">
+    	  <div class="circle" style="background-color: #f05214;">
+    	    <br><br>
+    	  	<span class="glyphicon glyphicon-user icon1"></span>
+    	  </div>
+    	  <div class="text1"><h3>Encuentra donadores</h3>Encuentra a personas interesadas. Dispuestas a dar una aportacion. Logrando reunir el capital semilla. </div>
+    	</div>
+    </div><!--fin segundo container-->
+
+    <!--tercer container-->
+    <div class="col-sm-4">
+    	<div class="how-work-item">
+    	  <div class="circle" style="background-color: #14bff0;">
+    	    <br><br>
+    	  	<span class="glyphicon glyphicon-grain icon1"></span>
+    	  </div>
+    	  <div class="text1"><h3>Emprende</h3>Abre el camino. Demuestra lo lejos que se puede llegar con un pequeno sueno. No te rindas, as crecer nuevas ideas.
+    	  </div>
+    	</div>
+    </div><!--fin Tercer container-->
+
+ </div>
+</div>
+<hr>
+
+<div id="contenedor4">
+    <br><br><br><br><br>
+	<div class="row" style="">
+	    <!-- 1 item foot-->
+		<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 footer-about ft " style="background-color: #272727;">
+		   <h4 class="footer-heading">Acerca de</h4>
+		   <p style="color: #fff">Somos una plataforma de "Crowdfounding" con base en Latinoamerica. enfocados en ayudar a pequenos emprendedores.</p>
+		</div><!-- fin 1 item foot-->
+
+		<!-- 2 item foot-->
+		<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 footer-about ft" style="background-color: #272727;">
+		  <h4 class="footer-heading">Enlaces</h4>
+		  <ul><li><a href="sesion.html">Iniciar sesion</a></li>
+		      <li><a href="registro.html">Registrese</a></li>
+		      <li><a href="buscar.html">Done a un Proyecto</a></li>
+		      <li><a href="">Politica de Privacidad</a></li>
+		  </ul>
+		</div><!-- fin 2 item foot -->
+
+		<!-- 3 item foot-->
+		<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 footer-about ft" style="background-color: #272727;">
+		    <h4 class="footer-heading">Boletin de anuncios</h4>
+		    <p style="color: #fff;">Registrate en nuestro Boletin de anuncios y mantente al dia de todo lo que nuestra plataforma tiene para ofrecer.</p>
+		    <form method="post" enctype="multipart/form-data" name="newsletter" id="form_newsletter" novalidate="novalidate" action="">
+		    <input type="email" name="subscribe_email" id="email" required="" placeholder="Coloque su correo aqui..." aria-required="true">
+		    <input type="submit" name="btnSubmit" id="btnSubmit" class="btn btn-rounded" value="Suscribir">
+		    <span id="newsletter-success"><label for="email" class="success" id="validation_success" style="color: #fff">Correo de confirmacion sera enviado a tu buzon!</label></span>
+		    <span id="newsletter-error"><label for="email" class="error" id="validation_error"></label></span>
+		    </form>
+		</div><!-- fin 3 item foot-->
+	</div>
+</div>
+  
 </body>
 </html>
