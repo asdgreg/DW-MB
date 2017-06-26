@@ -16,3 +16,8 @@ function verificacion(){
 	}
 
 }
+
+function focusProyecto(){
+	
+}
+
