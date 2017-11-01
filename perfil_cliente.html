@@ -3,84 +3,332 @@
 <head>
 	<title>Money Base - Perfil de Usuario</title>
 	<meta charset="utf-8">
-	<style>
-		.btn-success {
-		    background-color: #684D91;
-		    border-color: #684D91;
-		}
-    .sti{
-      position: absolute; left: 35%;
-    }
-	</style>
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="css/jquery-ui.min.css">
+  
+    <style>
+       #map {
+        height: 400px;
+        width: 100%;
+       }
+    </style>
 </head>
 <body>
 
-<div class="contenedor col-lg-6">
+<!-- BARRA NAVEGACION -->
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>  
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Money Base</a>
+    </div>
 
-<div>
-  <table class="table table-hover" style="width: 400px">
-  	<tr>
-  	 <td><label>Nombre del usuario.</label></td>
-     <td><label>nombre</label></td>
-  	</tr>
-  	<tr>
-  	 <td><label>Ocupacion del usuario.</label></td>
-     <td><label>ocupacion</label></td>
-  	</tr>
-  	<!--<tr>
-  	 <td><label>pais de origen.</label></td>
-     <td><label>pais</label></td>
-  	</tr>-->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">BUSCAR <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="buscar.html">Busqueda</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Tendencia</a></li>
+            <li><a href="#">Recientes</a></li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="sesion.html">Iniciar Sesion</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- FIN BARRA NAVEGACION -->
+
+<!-- GREG -->
+<div class="form-horizontal container">
+
+      <div class="form-group " >
+        <label class="col-sm-2 control-label">Imagen</label>
+        <div class="col-sm-6">
+          <div class="">
+            <div class="form">
+                <img class="media-object" src="img/profile.png">
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="form-group " >
+        <label class="col-sm-2 control-label">Usuario</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" name="txt-usuario" id="txt-usuario" placeholder="Nombre Usuario" value="1">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-sm-2 control-label">Nombre</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" name="txt-nombre" id="txt-nombre" placeholder="Nombre" >
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-sm-2 control-label">Apellido</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" name="txt-apellido" id="txt-apellido" placeholder="Apellido">
+        </div>
+      </div>
+      
+
+      <div class="form-group">
+        <label class="col-sm-2 control-label">Correo</label>
+        <div class="col-sm-6">
+          <input type="email" class="form-control" name="txt-correo" id="txt-correo" placeholder="ejemplo@mail.com">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-sm-2 control-label">Telefono</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" name="txt-telefono" id="txt-telefono" placeholder="Telefono">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-sm-2 control-label">Ocupacion</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" name="txt-ocupacion" id="txt-ocupacion" placeholder="Ocupacion">
+        </div>
+      </div>
+
+
+      <div class="form-group">
+        <label class="col-sm-2 control-label">Contrasena</label>
+        <div class="col-sm-6">
+          <input type="password" class="form-control" name="txt-pass" id="txt-pass" placeholder="contrasena">
+        </div>
+      </div>
+
+       <div class="form-group">
+        <label class="col-sm-2 control-label">Verificar Contrasena</label>
+        <div class="col-sm-6">
+          <input type="password" class="form-control" name="txt-verpass" id="txt-verpass" placeholder="Verificar contrasena">
+        </div>
+      </div>
+
+      <div class="col-sm-2"></div>
+      <div class="container" id="mensajes"></div>
+
+    <hr>
+      <div class="form-group">
+        <label class="col-sm-2 control-label">Proyecto</label>
+        <div class="col-sm-6">
+            <a href="#miModal" role="button" class="btn btn-warning" data-toggle="modal">Nuevo</a>
+        </div>
+      </div>
+</div>
+
+
+
+<!-- FIN GREG -->
+
+
+<!-- PROYECTOS -->
+<div class="container">
+  <table class="table table-striped table-hover col-lg-1">
     <tr>
-     <td><label>Correo electronico</label></td>
-     <td><label>correo</label></td>
+      <th>Nombre</th>
+      <th>Descripcion</th>
+      <th>Monto Meta</th>
+      <th>Monto Actual</th>
+      <th>Fecha</th>
+      <th>Mostrar</th>
     </tr>
-  	<tr>
-  	 <td><label>sitio web</label></td>
-     <td><label>web</label></td>
-  	</tr>
-  	<tr>
-  	 <td><label>Telefono de Contacto</label></td>
-     <td><label>tel.</label></td>
-  	</tr>
+    <tbody id="tbl-registros">
+
+
+    </tbody>
   </table>
+</div>
+
+<!-- FIN GREG -->
+
+
+<!-- MODAL GREG -->
+<div id="miModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" ariahidden="true">×</button>
+        <h1>Registrar Proyecto</h1>
+      </div>
+
+      <div class="modal-body" id="asistente">
+        <div class="progress" style="height: 20px">
+          <div class="progress-bar active" role="progressbar" aria-valuenow="1" aria-valuemin="1" aria-valuemax="4" id="barra" style="width: 20%; height: 20px"> Paso 1 De 4</div>
+          </div>
+        <div class="navbar">
+          <div class="navbar-inner col-md-offset-1">
+            <ul class="nav nav-pills">
+              <li class="active paso">
+                <a href="#paso1" data-toggle="tab" data-paso="1" class="paso1">
+                  <span class="glyphicon glyphicon-user"></span> GENERAL
+                </a>
+              </li>
+              <li class="paso">
+                <a href="#paso2" data-toggle="tab" data-paso="2" class="paso2">
+                  <span class="glyphicon glyphicon-film"></span> MEDIA
+                </a>
+              </li>
+              <li class="paso">
+                <a href="#paso3" data-toggle="tab" data-paso="3" class="paso3">
+                  <span class="glyphicon glyphicon-map-marker"></span> LUGAR
+                </a>
+              </li>
+              <li class="paso">
+                <a href="#paso4" data-toggle="tab" data-paso="4" class="paso4">
+                  <span class="glyphicon glyphicon-floopy-saved"></span> GUARDAR
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="tab-content">
+          <div class="tab-pane fade in active" id="paso1">
+            <div class="well">
+              <label>Nombre Proyecto</label>
+              <input type="text"  id="nombre" class="form-control">
+              <br>
+              <label>Descripcion</label>
+              <input type="text" id="apellido" class="form-control">
+              <br>
+              <label>Monto Meta</label>
+              <div class="input-group">
+                <span class="input-group-addon">$</span>
+                <input type="number" class="form-control" aria-label="Amount (to the nearest dollar)">
+                <span class="input-group-addon">.00</span>
+              </div>
+              <br>
+              <label>Fecha Finalizacion</label>
+              <input type="text"  id="datepicker" class="form-control">
+              <div>
+                <table>
+                  <tbody  id="mensaje1">
+
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <a href="#" class="btn btn-default next">Siguiente</a>
+          </div>
+          <div class="tab-pane fade" id="paso2">
+            <div class="well">
+              <label>Imagenes</label>
+              <input type="file" name="foto1">
+              <br>
+              <label>Facebook</label>
+              <input type="text" id="Facebook" class="form-control">
+              <br>
+              <label>Twitter</label>
+              <input type="text" id="Twitter" class="form-control">
+              <br>
+              <label>Yotube</label>
+              <input type="text" id="Yotube" class="form-control">
+              <div>
+                <table>
+                  <tbody  id="mensaje2">
+
+                  </tbody>
+                </table>
+              </div>              
+            </div>
+            <a href="#" class="btn btn-default next">Siguiente</a>
+          </div>
+          <div class="tab-pane fade" id="paso3">
+            <div class="well">
+              <label>Direccion</label>
+              <input type="text" id="correo" class="form-control">
+              <br>
+
+              <h3>UBICACION</h3>
+              <div id="map"></div>
+
+
+
+              <div>
+                <table>
+                  <tbody  id="mensaje3" class="">
+
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <a href="#" class="btn btn-default next">Siguiente</a>
+          </div>
+          <div class="tab-pane fade" id="paso4">
+            <div class="well">
+              <h3>COMPLETADO</h3>
+              <p>Para completar haz click en "ENVIAR"</p>
+             <button class="btn btn-primary" id="btn-nuevo" onclick="nuevo()">Enviar</button>
+            </div>
+          </div>        
+        </div>
+        <div class="modal-footer">
+          <div class="group">
+            <button class="btn" data-dismiss="modal" ariahidden="true">Cerrar</button>
+          </div>
+          <hr>
+          <label>
+            "El emprendimiento requiere estar dispuesto a tomar riesgos relacionados con el tiempo, el dinero, y el trabajo arduo"
+          </label>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
+<!-- FIN  MODAL GREG -->
 
-<div id="foto" class="col-lg-6">
- <div class="media">
-  <a class="pull-left" href="#">
-    <img class="media-object" src="img/profile.png">
-  </a>
- </div>
 
-      <label>Cambiar imagen</label>
-      <input type="file" id="InputImage"><br>
-      <a href="cambioC.html">Cambiar contraseña</a> 
-</div>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/bootstrap.js"></script>
+<script type="text/javascript" src="js/funcionamient.js"></script>
+<script type="text/javascript" src="js/perfil.js"></script>
+  <script type="text/javascript" src="js/jquery-ui.min.js"></script>
 
-<div id="tbl-proys" class="col-lg-12">
-   <table class="table table-hover">
-     <tr>
-       <th>n°</th>
-       <th>nombre</th>
-       <th>fecha inicio</th>
-       <th>fecha de termino</th>
-       <th>estado</th>
-       <th>recaudado</th>
-     </tr>
-     <tr>
-       <td>0</td>
-       <td>a</td>
-       <td>1</td>
-       <td>1</td>
-       <td>as</td>
-       <td>%%</td>
-     </tr>
-   </table>  
-</div>
+  <script>
+    $( function() {
+      $( "#datepicker" ).datepicker();
+    } );
+    </script>
+
+
+    <script>
+      function initMap() {
+        var uluru = {lat: -25.363, lng: 131.044};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 4,
+          center: uluru
+        });
+        var marker = new google.maps.Marker({
+          position: uluru,
+          map: map
+        });
+        console.log(marker.position);
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCUz-uinff4BrjnFkCUIgMM4MnqmeF03TQ&callback=initMap">
+    </script>
+
+
  </body>
 </html>
 

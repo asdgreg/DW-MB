@@ -55,15 +55,21 @@
 		      <input type="text" class="form-control" name="txt-buscar" id="txt-buscar" placeholder="INGRESA TU BUSQUEDA AQUI" required="">
 		    </div>
 		    <div class="col-sm-2">
-		      <button class="btn btn-default" onclick="verificacion();">BUSCAR</button>
+		      <button class="btn btn-default" onclick="busqueda();">BUSCAR</button>
 		    </div>
 
-		  </div>
+		  </div>    
 		  <div class="col-sm-2"></div>
 		  <div class="container" id="mensajes"></div>
       <button class="btn btn-default">Filtros</button>
-      <p>Categoria</p>
-      <p>Cantidad a recolectar</p>
+          <div class="row sideBar" id="div-opciones">
+            
+            <!-- Inicio de la lista de conversaciones -->
+            
+
+            <!-- Fin de la lista de conversaciones -->
+
+          </div>
 
 		<hr>
 	</div>
@@ -71,144 +77,11 @@
 
 
 <!-- BARRA RESULTADOS -->
-<div class="container" id="resultados">
-  <div class="row" >
+<div class="container" >
+  <div class="row" id="resultados">
 
   <!--CONTENIDO -->
-  <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-    <div class="panel panel-default">
-      <div class="panel-heading"><strong>Crowdfunding</strong></div>
-      <img src="img/img1.png" onmouseenter="focusProyecto();" class="img-responsive imgProyecto" alt="Responsive image">
-      <div class="panel-body">
-        <div id="cont">Crear una plataforma para crear fondos semilla, y poder emprender</div>
-      </div>
-      <!-- BARRA -->
-      <div class="progress">
-        <div class="progress-bar" style="width: 20%"></div>
-      </div>
-
-      <div class="table-responsive"><!-- ESTADO -->
-        <table class="table table-bordered">
-          <tr class="">
-            <td >
-              <h6>Actual</h6><h4><strong>20$</strong></h4>
-            </td>
-            <td class="">
-              <h6>Meta</h6><h4><strong>50$</strong></h4>
-            </td>
-          </tr>
-        </table>
-      </div>
-    </div>
-  </div>
-
-  <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-    <div class="panel panel-default">
-      <div class="panel-heading"><strong>Microcontroladores</strong></div>
-      <img src="img/img2.jpg" class="img-responsive imgProyecto" alt="Responsive image"  width="100%">
-      <div class="panel-body">
-        <div id="cont">Crear un laboratorio nuevo y tecnologico para la clase de Microcontroladores</div>
-      </div>
-      <!-- BARRA -->
-      <div class="progress">
-        <div class="progress-bar" style="width: 40%"></div>
-      </div>
-
-      <div class="table-responsive"><!-- ESTADO -->
-        <table class="table table-bordered">
-          <tr class="">
-            <td >
-              <h6>Actual</h6><h4><strong>20$</strong></h4>
-            </td>
-            <td class="">
-              <h6>Meta</h6><h4><strong>50$</strong></h4>
-            </td>
-          </tr>
-        </table>
-      </div>
-    </div>
-  </div>
-
-  <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-    <div class="panel panel-default">
-      <div class="panel-heading"><strong>Replantacion</strong></div>
-      <img src="img/img3.jpg" class="img-responsive imgProyecto" alt="Responsive image">
-      <div class="panel-body">
-        <div id="cont">Lograr la plantacion de 1200 arboles, para darle un nuevo pulmon a la ciudad</div>
-      </div>
-      <!-- BARRA -->
-      <div class="progress">
-        <div class="progress-bar" style="width: 10%"></div>
-      </div>
-
-      <div class="table-responsive"><!-- ESTADO -->
-        <table class="table table-bordered">
-          <tr class="">
-            <td >
-              <h6>Actual</h6><h4><strong>20$</strong></h4>
-            </td>
-            <td class="">
-              <h6>Meta</h6><h4><strong>50$</strong></h4>
-            </td>
-          </tr>
-        </table>
-      </div>
-    </div>
-  </div>
-
-    <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12  ">
-    <div class="panel panel-default">
-      <div class="panel-heading"><strong>Biblioteca</strong></div>
-      <img src="img/img4.jpg" class="img-responsive imgProyecto" alt="Responsive image">
-      <div class="panel-body">
-        <div id="cont">Recolectar libros para una nueva biblioteca para los ninos y jovenes del pueblo, y asi, agrandar el conocimiento de los nuestros</div>
-      </div>
-      <!-- BARRA -->
-      <div class="progress">
-        <div class="progress-bar" style="width: 70%"></div>
-      </div>
-
-      <div class="table-responsive"><!-- ESTADO -->
-        <table class="table table-bordered">
-          <tr class="">
-            <td >
-              <h6>Actual</h6><h4><strong>20$</strong></h4>
-            </td>
-            <td class="">
-              <h6>Meta</h6><h4><strong>50$</strong></h4>
-            </td>
-          </tr>
-        </table>
-      </div>
-    </div>
-  </div>
-
-    <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-    <div class="panel panel-default">
-      <div class="panel-heading"><strong>Software de Salud</strong></div>
-      <img src="img/img5.jpg" class="imgProyecto" alt="Responsive image"> <div class="panel-body">
-        <div id="cont">Implementar en un municipio el software que ayude al aprendizaje interactivo de la anatomia humana</div>
-      </div>
-      <!-- BARRA -->
-      <div class="progress">
-        <div class="progress-bar" style="width: 20%"></div>
-      </div>
-
-      <div class="table-responsive"><!-- ESTADO -->
-        <table class="table table-bordered">
-          <tr class="">
-            <td >
-              <h6>Actual</h6><h4><strong>20$</strong></h4>
-            </td>
-            <td class="">
-              <h6>Meta</h6><h4><strong>50$</strong></h4>
-            </td>
-          </tr>
-        </table>
-      </div>
-    </div>
-  </div>
-
+  
     <!--FIN CONTENIDO -->
   </div>
 </div>
@@ -216,16 +89,8 @@
 
 
 
-<script type="text/javascript" src="js/buscar.js"></script>
 <script src="js/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
-
-<script>
-$(document).ready(function(){
-    $("button").click(function(){
-        $("p").toggle(1000);
-    });
-});
-</script>
+<script type="text/javascript" src="js/buscar.js"></script>
 </body>
 </html>
