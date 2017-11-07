@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>MB - Buscar</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/general.css">
+<!--
+	<link rel="stylesheet" type="text/css" href="css/freelancer.css">
+-->
+
+</style>
+</head>
+</head>
+<body>
+<!-- BARRA NAVEGACION -->
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>	
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Money Base</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">BUSCAR <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="buscar.html">Busqueda</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Tendencia</a></li>
+            <li><a href="#">Recientes</a></li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="sesion.html">Iniciar Sesion</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- FIN BARRA NAVEGACION -->
+
+<!-- BARRA BUSQUEDA -->
+<div class="form-horizontal container">
+		<h1>Buscar Proyectos</h1>
+		  <div class="form-group">
+		    <div class="col-sm-4">
+		      <input type="text" class="form-control" name="txt-buscar" id="txt-buscar" placeholder="INGRESA TU BUSQUEDA AQUI" required="">
+		    </div>
+		    <div class="col-sm-2">
+		      <button class="btn btn-default" onclick="busqueda();">BUSCAR</button>
+		    </div>
+
+		  </div>    
+		  <div class="col-sm-2"></div>
+		  <div class="container" id="mensajes"></div>
+      <button class="btn btn-default">Filtros</button>
+          <div class="row sideBar" id="div-opciones">
+            
+            <!-- Inicio de la lista de conversaciones -->
+            
+
+            <!-- Fin de la lista de conversaciones -->
+
+          </div>
+
+		<hr>
+	</div>
+<!-- FIN BARRA BUSQUEDA -->
+
+
+<!-- BARRA RESULTADOS -->
+<div class="container" >
+  <div class="row" id="resultados">
+
+  <!--CONTENIDO -->
+  
+    <!--FIN CONTENIDO -->
+  </div>
+</div>
+<!-- FIN BARRA RESULTADOS -->
+
+
+
+<script src="js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/buscar.js"></script>
+</body>
+</html>

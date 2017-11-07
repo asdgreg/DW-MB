@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Money Base</title>
+	<meta charset="utf-8">
+	 <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="css/general.css">
+	<link rel="icon" href="logo/propuesta4.jpg" sizes="16x16" type="image/jpg">
+</head>
+<body>
+
+
+<!-- BARRA NAVEGACION -->
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>  
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Money Base</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">BUSCAR <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="buscar.html">Busqueda</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Tendencia</a></li>
+            <li><a href="#">Recientes</a></li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="sesion.html">Iniciar Sesion</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- FIN BARRA NAVEGACION -->
+
+
+<div id="div-nombre"></div>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+				<div>
+          <br><br>
+          <div>
+            <input type="hidden" id="id">
+          </div>
+          <label>Ingres sus Datos Personales:</label><br>
+          <br>
+  					<table class="table col-lg-12 col-md-6 col-sm-12 col-xs-12">
+  						<tr>
+  	 						<td><label>Nombre Completo</label></td>
+     						<td><input id="n" class="text col-lg-12 col-md-6 col-sm-12 col-xs-12"  placeholder="nombre completo" required></td>
+  						</tr>
+  						<tr>
+  	 						<td><label>Correo</label></td>
+     						<td><input id="c" class="email col-lg-12 col-md-6 col-sm-12 col-xs-12"  placeholder="ejemplo@gmail.com" required></td>
+  						</tr>
+  						
+  					</table>
+  					<h5>Sus donaciones se realizan con:</h5>
+  					<img src="img/imgNoECheck.gif">
+  				</div>
+			</div>
+
+			<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+				<div>
+					<br><br>
+					<label>Detalle de Donación:</label>
+  
+  					 <div>
+                 <br>
+                 Elija su importe a donar:
+                <select id="slc-donar">
+                    <option value="1" selected="selected">$1.00 USD</option>
+                    <option value="5">$5.00 USD</option>
+                    <option value="10">$10.00 USD</option>
+                    <option value="20">$20.00 USD</option>
+                    <option value="50">$50.00 USD</option>
+                    <option value="100">$100.00 USD</option>
+                    <option value="500">$500.00 USD</option>
+                    <option value="1000">$1000.00 USD</option>
+                </select>
+                <br><br><br>
+
+                <div id="div-boton">
+
+                  
+                      <input type="hidden" name="cmd" value="_s-xclick">
+                      <input type="hidden" name="hosted_button_id" value="SUAMZ2V2R334G">
+                      <input type="image" src="https://www.paypalobjects.com/es_XC/i/btn/btn_paynowCC_LG.gif" border="0" 
+                      name="submit" alt="PayPal, la forma más segura y rápida de pagar en línea." onclick="hacerDonacion()">
+                      <img alt="" border="0" src="https://www.paypalobjects.com/es_XC/i/scr/pixel.gif" width="1" height="1">
+                  
+
+                </div>
+
+             </div>
+             <br><br>
+             <label>Al hacer clic en "Pagar Ahora", reconoces que estás contribuyendo a un trabajo en progreso, y no realizando una compra directa.También reconoces y aceptas nuestros Términos de uso y Política de privacidad.</label><br><br>
+
+
+
+
+  				</div>
+			</div>
+			</div>
+<script src="js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/donar.js"></script>
+</body>
+</html>
