@@ -383,7 +383,7 @@ app.post("/subirimg", urlEncodeParser, function(peticion, respuesta){
 				   is.on('end', function() {
 				      //eliminamos el archivo temporal
 				      fs.unlinkSync(path)
-					respuesta.send(JSON.stringify(filas.insertId));
+					
 				   });
 
 				   	conexion.query("INSERT INTO `mb_db`.`tbl_imagenes_x_proyecto` (`Id_Imagen`, `Id_Proyecto`) VALUES ("+JSON.stringify(filas.insertId)+", ?);",

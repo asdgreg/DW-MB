@@ -1,6 +1,7 @@
 var activo = 0; 
 var edicion = 0; 
 var id_edicion;
+var id_img;
 $(document).ready(function(){
 	bloquear(1);
 	$.ajax({
@@ -163,7 +164,7 @@ function agregarP(id,nombre, info,meta,actual,fecha){
       "<td>"+meta+"</td>"+
       "<td>"+actual+"</td>"+
       "<td>"+fecha+"</td>"+
-      "<td><button class='btn btn-info glyphicon glyphicon-pencil' onclick='editProyecto("+id+")' href='#miModal' data-toggle='modal'> </button>  <button class='btn btn-default glyphicon glyphicon-eye-open' onclick='verProyecto("+id+")'> </button></td>"+
+      "<td><button class='btn btn-warning glyphicon glyphicon-picture' onclick='subirimgnueva("+id+")'    data-toggle='modal' data-target='.bs-example-modal-sm'> </button> <button class='btn btn-info glyphicon glyphicon-pencil' onclick='editProyecto("+id+")' href='#miModal' data-toggle='modal'> </button>  <button class='btn btn-default glyphicon glyphicon-eye-open' onclick='verProyecto("+id+")'> </button></td>"+
     "</tr>";
     $("#tbl-registros").append(html);
 }
@@ -329,4 +330,9 @@ var data = new FormData(form);
 
 
 
+}
+
+function subirimgnueva(id){
+	$("#idproyimg").val(id);
+	
 }

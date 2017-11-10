@@ -161,7 +161,7 @@
       <th>Monto Meta</th>
       <th>Monto Actual</th>
       <th>Fecha</th>
-      <th>Mostrar</th>
+      <th>Opciones</th>
     </tr>
     <tbody id="tbl-registros">
 
@@ -311,12 +311,12 @@
 <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
   <div class="modal-dialog modal-sm" role="document">
     <div class="modal-content">
-      <h4 class="modal-title" id="mySmallModalLabel">Imagenes</h4>
+      <h4 class="modal-title well" id="mySmallModalLabel">Imagenes</h4>
       <div class="well">
         <form  method='POST' enctype='multipart/form-data' id="form1">
           <label><input type="hidden" id="usimagen" name="usuario"  class="form-control"></label>
           <label><input type="hidden" id="idproyimg" value="4" name="usuario" class="form-control"></label>
-          <label>Imagen</label>
+    
           <input type="file" id="archivo" name="archivo" accept="image/x-png,image/gif,image/jpeg" />
           <hr>
           <input type="button" name="btn-registrar-ajax" value="Subir" class="btn btn-primary" onclick="guardarImagen();">
