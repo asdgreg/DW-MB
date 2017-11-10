@@ -112,7 +112,7 @@ $(document).ready(function(){
 	              	'</tr>'+
 	              	'<tr>'+
 	                	'<td colspan="2">'+
-	                		'<label>'+((respuesta[0].Monto_Recaudado/respuesta[0].Monto_Meta)*100)+'% de Recaudación</label><br>'+
+	                		'<label>'+Math.trunc(((respuesta[0].Monto_Recaudado/respuesta[0].Monto_Meta)*100))+'% de Recaudación</label><br>'+
 	                	'</td>'+
 	              	'</tr>'+
   			    '</table>'+
