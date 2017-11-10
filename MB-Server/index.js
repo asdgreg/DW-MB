@@ -48,7 +48,6 @@ app.get("/login", urlEncodeParser, function(peticion, respuesta){
 	var resultado = {
 		usuario: peticion.query.usuario,
 		contrasena: peticion.query.contrasena
-
 	};
 
 	respuesta.send(JSON.stringify(resultado));
@@ -170,7 +169,19 @@ app.post("/topproyecto",urlEncodeParser,function(peticion, respuesta){
 			}
 		);
 });
-
+//cargar top de proyectos index
+app.post("/topproyectoindex",urlEncodeParser,function(peticion, respuesta){
+		conexion.query("SELECT tbl_proyectos.Id_Proyecto,Nombre_Proyecto,Descripcion, Monto_Meta, Monto_Recaudado, fecha, tbl_imagenes.imagen,((monto_recaudado / Monto_meta)*100) as res FROM tbl_proyectos "+
+						"inner join tbl_imagenes_x_proyecto on tbl_imagenes_x_proyecto.Id_Proyecto = tbl_proyectos.Id_Proyecto "+
+						"inner join tbl_imagenes on tbl_imagenes_x_proyecto.id_imagen = tbl_imagenes.id_imagen "+
+						"order by res DESC limit 3",
+			[peticion.body.limit],
+			function(err, filas, campos){
+				respuesta.send(JSON.stringify(filas));
+				console.log(filas);
+			}
+		);
+});
 app.post("/search",urlEncodeParser,function(peticion, respuesta){
 			conexion.query("SELECT tbl_proyectos.Id_Proyecto,Nombre_Proyecto,Descripcion, Monto_Meta, Monto_Recaudado, fecha, tbl_imagenes.imagen,((monto_recaudado / Monto_meta)*100) as res FROM tbl_proyectos "+
 						"inner join tbl_imagenes_x_proyecto on tbl_imagenes_x_proyecto.Id_Proyecto = tbl_proyectos.Id_Proyecto "+

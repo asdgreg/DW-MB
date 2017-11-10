@@ -9,7 +9,6 @@ $(document).ready(function(){
 		method:"get",
 		dataType:"json",
 		success:function(respuesta){
-			alert(respuesta);
 			if(respuesta.length > 0){
 			window.location = "/perfil_cliente.html";
 			}else{
