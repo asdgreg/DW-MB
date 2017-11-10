@@ -6,7 +6,7 @@ var url = require("url");
 var mysql = require("mysql");
 var nodemailer = require('nodemailer'); // email sender function exports.sendEmail = function(req, res){
 var cookieParser = require("cookie-parser"); //coockies
-
+var multipart = require('connect-multiparty');//Express 4
 
 var urlEncodeParser = bodyParser.urlencoded({extended:false});
 
@@ -21,7 +21,7 @@ var conexion = mysql.createConnection({
 
 app.use(express.static("public"));
 app.use(cookieParser());
-
+app.use(multipart()) ;
 
 app.get("/index",function(peticion, respuesta){
 	console.log("Primera Pagina / Inicial");
@@ -366,6 +366,38 @@ app.post("/nuevo-proyecto",urlEncodeParser,function(peticion, respuesta){
 	});
 });
 
+app.post("/subirimg", urlEncodeParser, function(peticion, respuesta){
+	conexion.query("INSERT INTO `mb_db`.`tbl_imagenes` (`Imagen`) VALUES ('1') ",
+			function(err, filas, campos){
+				if (err) throw err;
+					var fs = require('fs')
+
+				   var path = peticion.files.archivo.path
+				   var newPath = 'public/img/img-pro/'+JSON.stringify(filas.insertId)+'.jpg'
+
+				   var is = fs.createReadStream(path)
+				   var os = fs.createWriteStream(newPath)
+
+				   is.pipe(os)
+
+				   is.on('end', function() {
+				      //eliminamos el archivo temporal
+				      fs.unlinkSync(path)
+					respuesta.send(JSON.stringify(filas.insertId));
+				   });
+
+				   	conexion.query("INSERT INTO `mb_db`.`tbl_imagenes_x_proyecto` (`Id_Imagen`, `Id_Proyecto`) VALUES ("+JSON.stringify(filas.insertId)+", ?);",
+						[peticion.query.idproyimg],
+						function(err, filas, campos){
+							respuesta.send(JSON.stringify(filas));
+							console.log(filas);
+						}
+					);
+				
+			}
+		);
+
+});
 
 //esto es una prueba
 

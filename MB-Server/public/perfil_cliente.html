@@ -243,9 +243,6 @@
           </div>
           <div class="tab-pane fade" id="paso2">
             <div class="well">
-              <label>Imagenes</label>
-              <input type="file" name="img-pro" accept="image/x-png,image/gif,image/jpeg" />
-              <br>
               <label>Facebook</label>
               <input type="text" id="face" class="form-control">
               <br>
@@ -308,6 +305,28 @@
 </div>
 <!-- FIN  MODAL GREG -->
 
+<!-- FIN  MODAL GREG -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Small modal</button>
+
+<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+      <h4 class="modal-title" id="mySmallModalLabel">Imagenes</h4>
+      <div class="well">
+        <form  method='POST' enctype='multipart/form-data' id="form1">
+          <label><input type="hidden" id="usimagen" name="usuario"  class="form-control"></label>
+          <label><input type="hidden" id="idproyimg" value="4" name="usuario" class="form-control"></label>
+          <label>Imagen</label>
+          <input type="file" id="archivo" name="archivo" accept="image/x-png,image/gif,image/jpeg" />
+          <hr>
+          <input type="button" name="btn-registrar-ajax" value="Subir" class="btn btn-primary" onclick="guardarImagen();">
+        </form>  
+
+      </div>
+    </div>
+  </div>
+</div>
+<!-- FIN  MODAL GREG -->
 
 <script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript" src="js/bootstrap.js"></script>

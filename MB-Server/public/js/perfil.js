@@ -13,6 +13,7 @@ $(document).ready(function(){
 		success:function(respuesta){
 			if(respuesta.length > 0){
 				$("#txt-usuario").val(respuesta);
+				$("#usimagen").val(respuesta);
 					cargarDatos(respuesta);
 					cargarProy();
 			}else{
@@ -290,3 +291,42 @@ function limpiar (){
 }
 
 //UPDATE `mb_db`.`tbl_proyectos` SET `Nombre_Proyecto`= ?, `Descripcion`= ?, `Fecha`= ?, `url_video`= ?, `facebook`= ?, `twitter`= ? WHERE `Id_Proyecto`= ;
+
+
+function guardarImagen(){
+var form = $('#form1')[0];
+var data = new FormData(form);
+	if($("#usimagen").val()){
+		if($("#archivo").val()){
+			$.ajax({
+					url:"/subirimg",
+		            type: "POST",
+		            enctype: 'multipart/form-data',
+		            data: data,
+		            processData: false,
+		            contentType: false,
+		            cache: false,
+		            timeout: 600000,		
+				success:function(respuesta){
+						console.log(respuesta);	
+						$("#archivo").val("");
+						alert("Imagen Actualizada!");
+				},
+				error:function(e){
+					alert("Error: " + JSON.stringify(e));
+				}
+			});
+		}
+		else
+		{
+			alert("Campos Vacios");
+		}
+	}
+	else 
+	{
+		alert("Inicie Sesion Antes");
+	}
+
+
+
+}
