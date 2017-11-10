@@ -78,9 +78,9 @@
 		        	var regurl = '^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$';
 					var regu = new RegExp(regurl);
 					
-			        var nombre = ["img-pro","Facebook","Twitter","Yotube"];
-			        for (var i = 1; i < 4; i++) {
-			        	if($('#'+nombre[i]).val().length != 0){
+			        var nombre = ["img-pro","face","twi","you"];
+			        for (var i = 0; i < 4; i++) {
+			        	if(true){
 				        	if(!regu.test($("#"+nombre[i]).val()) ){
 				         		error++;
 				         		console.log("Error de expresion");
@@ -104,11 +104,12 @@
 		        break;
 		    case "paso3":
 		    	error = 0;
-		    	var mensaje = "";
+		    	var mensaje3 = "";
 		        var nombre = ["correo-pro"];
 		        for (var i = 0; i < 1; i++) {
 		        	if($('#'+nombre[i]).val().length == 0){
 		         		error++;
+		         		mensaje3 += "<tr><td>Campo "+nombre[i]+" Vacio </td></tr>";
 		         		$('#'+nombre[i]).css("border-color","#FF0000");
 		         	}else{
 		         		$('#'+nombre[i]).css("border-color","#ccc");
@@ -152,7 +153,7 @@
 		        if(error == 0){
 		         	return true;
 		        }else{
-		        	$('#mensaje3').html(mensaje);
+		        	$('#mensaje3').html(mensaje3);
 		        }
 		        break;
 		    default:
