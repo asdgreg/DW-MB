@@ -33,12 +33,10 @@ function cargaropciones(){
 		dataType:"json",
 		success:function(respuesta){
 			if(respuesta.length > 0){
-				alert("Acceso Correcto");
 				for (var i = 0; i < respuesta.length; i++) {
 					$("#div-opciones").append(respuesta[i].nombre_categoria+"<br>");
 				}
 			}else{
-				alert("No hay opciones");
 			}
 		},
 		error:function(e){
@@ -89,14 +87,13 @@ function topproyectos(){
 		dataType:"json",
 		success:function(respuesta){
 			if(respuesta.length > 0){
-				alert("Acceso Correcto");
 				for (var i = 0; i < respuesta.length; i++) {
 					cargarProyecto(respuesta[i].Id_Proyecto,respuesta[i].Nombre_Proyecto,
 						respuesta[i].Descripcion,respuesta[i].Monto_Recaudado,
 						respuesta[i].Monto_Meta,"/img/"+respuesta[i].imagen);
 				}
 			}else{
-				alert("No hay opciones");
+				alert("No hay Proyectos");
 			}
 		},
 		error:function(e){
@@ -117,7 +114,6 @@ function busqueda(){
 		dataType:"json",
 		success:function(respuesta){
 			if(respuesta.length > 0){
-				alert("Acceso Correcto");
 				$("#resultados").html("");
 				for (var i = 0; i < respuesta.length; i++) {
 					cargarProyecto(respuesta[i].Id_Proyecto,respuesta[i].Nombre_Proyecto,

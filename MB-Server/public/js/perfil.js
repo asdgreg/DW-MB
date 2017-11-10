@@ -269,9 +269,9 @@ id_edicion= num;
 						$("#mon-pro").val(respuesta[0].Monto_Meta);
 						$("#mon-pro").attr("disabled", "");
 						$("#datepicker").val(respuesta[0].Fecha);
-						$("#Facebook").val(respuesta[0].facebook);
-						$("#Twitter").val(respuesta[0].twitter);
-						$("#Yotube").val(respuesta[0].url_video);
+						$("#face").val(respuesta[0].facebook);
+						$("#twi").val(respuesta[0].twitter);
+						$("#you").val(respuesta[0].url_video);
 
 				},
 				error: function(err){
@@ -334,5 +334,5 @@ var data = new FormData(form);
 
 function subirimgnueva(id){
 	$("#idproyimg").val(id);
-	
+
 }
