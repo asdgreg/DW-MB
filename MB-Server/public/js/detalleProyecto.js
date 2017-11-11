@@ -12,7 +12,7 @@ function extraerImagenes(id,url){
         	$("#div-c1").append('<div class="galleryThumbnail col-lg-14 col-md-12 col-sm-12 col-xs-12">');
         	$("#div-c1").append('<img src="img/video.jpg" width ="50px" height="50px" onclick="cambiarVideo(\''+url+'\');" >');
 			for (var i = 0; i < respuesta.length; i++) {
-				$("#div-c1").append('<img src="'+respuesta[i].Imagen+'" width ="50px" height="50px" onclick="cambiarImg(\''+respuesta[i].Imagen+'\');" >');
+				$("#div-c1").append(' <img src="/img/img-pro/'+respuesta[i].id_Imagen+'.jpg" width ="50px" height="50px" onclick=cambiarImg("/img/img-pro/'+respuesta[i].id_Imagen+'.jpg");>');
 			}
 
 			$("#div-c1").append('</div>');
@@ -33,17 +33,20 @@ function extraerImagenes(id,url){
 }
 
 function cambiarImg(ruta){
-	$("#cambiarImagen").html('<img class="col-lg-12 col-md-12 col-sm-12 col-xs-12" src="'+ruta+'">');
+	$("#cambiarImagen").html('<img class="col-lg-12 col-md-12 col-sm-12 col-xs-12 " style="min-width: 620px; min-height: 480px; max-height: 480px; max-width: 320px; display:block; margin:auto;" src="'+ruta+'">');
 }
 
 function cambiarVideo(ruta){
-	$("#cambiarImagen").html('<video class="col-lg-10 col-md-12 col-sm-12 col-xs-12" src="'+ruta+'" controls></video><hr>');
+	$("#cambiarImagen").html('<div class="col-lg-10 col-md-12 col-sm-12 col-xs-12">'+
+		"<iframe width='620px' height='480' "+
+		"src='https://www.youtube.com/embed/"+ruta+"?autoplay=1'>"+
+		"</iframe>"
++'</div><hr>');
 }
 
 $("#btndonar").click(function(){
 	var URLsearch = window.location.search;
 	var res = URLsearch.split("=");
-	alert("fimdfkvjsndfkjakdfjn");
 	window.location = "/donar.html?pro="+res[1];
 });
 
@@ -82,7 +85,7 @@ $(document).ready(function(){
 				var html2 = 
 				'<br>'+
                 	
-				'<h4>'+respuesta[0].Nombre_Proyecto+'</h4>'+
+				'<h4><strong>'+respuesta[0].Nombre_Proyecto+'</strong></h4>'+
   				'<table class="table col-lg-12 col-md-12 col-sm-12 col-xs-12">'+
 	  				'<tr>'+
 		  	 			'<br><td colspan="2"><label>Descripción del proyecto:</label><br><br>'+
@@ -92,7 +95,7 @@ $(document).ready(function(){
 		                '</td>'+
 	  				'</tr>'+
 	  				'<tr>'+
-		  	 			'<td><img class="redondo" src="img/profile.png" width="70" height="70"></td>'+
+		  	 			'<td><img class="img-responsive img-circle" src="img/User/'+respuesta[0].Id_Usuario_Creador+'.jpg" width="70" height="70"></td>'+
 		                '<td><br><label>'+respuesta[0].Nombre_Usuario+'</label></td>'+
 	  				'</tr>'+
 	              	'<tr>'+

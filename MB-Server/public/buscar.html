@@ -50,14 +50,11 @@
 <!-- BARRA BUSQUEDA -->
 <div class="form-horizontal container">
 		<h1>Buscar Proyectos</h1>
-		  <div class="form-group">
-		    <div class="col-sm-4">
-		      <input type="text" class="form-control" name="txt-buscar" id="txt-buscar" placeholder="INGRESA TU BUSQUEDA AQUI" required="">
+		  <div class="form-group " style="margin-left: 0px">
+		    <div class="input-group col-sm-6" >
+		      <input type="text" class="form-control" name="txt-buscar" id="txt-buscar" placeholder="Buscar Proyectos..." required="">
+          <a class="btn btn-default input-group-addon" onclick="busqueda();">BUSCAR</a>
 		    </div>
-		    <div class="col-sm-2">
-		      <button class="btn btn-default" onclick="busqueda();">BUSCAR</button>
-		    </div>
-
 		  </div>    
 		  <div class="col-sm-2"></div>
 		  <div class="container" id="mensajes"></div>
@@ -70,15 +67,14 @@
             <!-- Fin de la lista de conversaciones -->
 
           </div>
-
-		<hr>
-	</div>
+  </div>
 <!-- FIN BARRA BUSQUEDA -->
-
+<br>
 
 <!-- BARRA RESULTADOS -->
 <div class="container" >
-  <div class="row" id="resultados">
+  <div class="row well" id="resultados">
+  <h4>Resultados</h4>
 
   <!--CONTENIDO -->
   

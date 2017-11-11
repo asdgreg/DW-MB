@@ -47,7 +47,7 @@ function topproyectos(){
 				for (var i = 0; i < respuesta.length; i++) {
 					cargarProyecto(respuesta[i].Id_Proyecto,respuesta[i].Nombre_Proyecto,
 						respuesta[i].Descripcion,respuesta[i].Monto_Recaudado,
-						respuesta[i].Monto_Meta,"/img/"+respuesta[i].imagen);
+						respuesta[i].Monto_Meta,"/img/"+respuesta[i].Imagen);
 				}
 			}else{
 				alert("No hay opciones");

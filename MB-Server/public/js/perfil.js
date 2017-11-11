@@ -271,7 +271,7 @@ id_edicion= num;
 						$("#datepicker").val(respuesta[0].Fecha);
 						$("#face").val(respuesta[0].facebook);
 						$("#twi").val(respuesta[0].twitter);
-						$("#you").val(respuesta[0].url_video);
+						$("#you").val("https://www.youtube.com/embed/"+respuesta[0].url_video+"?autoplay=1");
 
 				},
 				error: function(err){
