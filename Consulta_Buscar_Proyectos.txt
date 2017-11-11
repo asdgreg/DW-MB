@@ -1,0 +1,15 @@
+"SELECT A.Imagen, "+
+       		"D.*, ((monto_recaudado / Monto_meta)*100) as res "+
+			"FROM  tbl_imagenes A "+
+			"INNER JOIN "+
+			"(SELECT a.Id_Imagen "+
+			"        FROM tbl_imagenes a "+
+			"       INNER JOIN tbl_imagenes_x_proyecto b "+
+			"       ON(a.Id_Imagen = b.Id_Imagen) "+
+			"        ORDER by b.Id_Proyecto LIMIT 1)  B "+
+			"ON(A.Id_Imagen = B.Id_Imagen) "+
+			"INNER JOIN tbl_imagenes_x_proyecto C "+
+			"ON(a.Id_Imagen = c.Id_Imagen) "+
+			"INNER JOIN tbl_proyectos D "+
+			"ON(c.Id_Proyecto = d.Id_Proyecto) "+
+			"ORDER BY res DESC"
