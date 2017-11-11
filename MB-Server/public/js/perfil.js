@@ -177,6 +177,9 @@ var fecha = res[1] +"/"+res[0]+"/"+res[2].substring(2, 4)
 alert($("#img-pro").val());
 
 
+var regurl = '^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$';
+var regu = new RegExp(regurl);
+
 			var parametros = "usuario="+$("#txt-usuario").val()
 							+"&nombre="+$("#nombre-pro").val()
 							+"&descripcion="+$("#des-pro").val()
@@ -226,12 +229,26 @@ if(res[2].length > 2){
 	var fecha = res[1] +"/"+res[0]+"/"+res[2];
 }
 
+
+var regurl = '(v=[a-zA-z0-9]*)|(e\/[a-zA-Z0-9]*)';
+var regu = new RegExp(regurl);
+
+var youtube = "dfjhfsfkjnd";
+ if(regu2.test($("#you").val())){
+	var res = $("#you").val().split("(v=[a-zA-z0-9]*)|(e\/[a-zA-Z0-9]*)");
+	alert(" resultado cortado " + res);
+
+ 	alert("se cumple " + $("#you").val().substring(2,$("#you").val().length));
+ 	youtube = $("#you").val().substring(2,$("#you").val().length)
+ 	alert(youtube);
+ }
+
 			var parametros = "nombre="+$("#nombre-pro").val()
 							+"&descripcion="+$("#des-pro").val()
 							+"&fecha="+fecha
 							+"&face="+$("#Facebook").val()
 							+"&twi="+$("#Twitter").val()
-							+"&video="+$("#Yotube").val()
+							+"&video="+youtube
 							+"&id_pro="+id_edicion;
 							//+"&categoria="+$("#txt-usuario").val();
 console.log(parametros);
@@ -271,7 +288,7 @@ id_edicion= num;
 						$("#datepicker").val(respuesta[0].Fecha);
 						$("#face").val(respuesta[0].facebook);
 						$("#twi").val(respuesta[0].twitter);
-						$("#you").val("https://www.youtube.com/embed/"+respuesta[0].url_video+"?autoplay=1");
+						$("#you").val("https://www.youtube.com/watch?v="+respuesta[0].url_video);
 
 				},
 				error: function(err){

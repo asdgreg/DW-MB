@@ -78,7 +78,7 @@
 		        	var regurl = '^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$';
 					var regu = new RegExp(regurl);
 					
-			        var nombre = ["img-pro","face","twi","you"];
+			        var nombre = ["img-pro","face","twi"];
 			        for (var i = 0; i < 4; i++) {
 			        	if(true){
 				        	if(!regu.test($("#"+nombre[i]).val()) ){
@@ -93,6 +93,15 @@
 			         	}else{
 			         		$('#'+nombre[i]).css("border-color","#ccc");
 			         	}
+			        }
+			        regurl = '(https?:\\/\\/)?(www\\.)?(yotu\\.be\\/|youtube\\.com\\/)?((.+\\/)?(watch(\\?v=|.+&v=))?(v=)?)([\\w_-]{11})(&.+)?';
+			        regu2 = new RegExp(regurl);
+			        if(!regu2.test($("#you").val())){
+			        	error++;
+			        	$('#you').css("border-color","#FF0000");
+			        	mensaje2 += "<tr><td>Formato incorrecto de www.youtube.com/ </td></tr>";
+			        }else{
+			        	$('#you').css("border-color","#ccc");
 			        }
 
 
