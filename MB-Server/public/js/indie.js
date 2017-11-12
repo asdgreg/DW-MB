@@ -5,7 +5,7 @@ $(document).ready(function(){
 
 function cargarProyecto(idproyecto,nombre,info,actual,meta,imagen){
 	  var html = "<div class='col-lg-4 col-md-6 col-sm-6 col-xs-12' onclick='verProyecto("+idproyecto+")'>"+
-   					"<div class='panel panel-default'>"+
+   					"<div class='panel panel-default vista' >"+
 				      "<div class='panel-heading'><strong>"+nombre+"</strong></div>"+
 				     " <img src="+imagen+" class='img-responsive imgProyecto' alt='Responsive image'>"+
 				      "<div class='panel-body'>"+
@@ -47,7 +47,7 @@ function topproyectos(){
 				for (var i = 0; i < respuesta.length; i++) {
 					cargarProyecto(respuesta[i].Id_Proyecto,respuesta[i].Nombre_Proyecto,
 						respuesta[i].Descripcion,respuesta[i].Monto_Recaudado,
-						respuesta[i].Monto_Meta,"/img/"+respuesta[i].Imagen);
+						respuesta[i].Monto_Meta,"/img/img-pro/"+respuesta[i].id_Imagen+".jpg");
 				}
 			}else{
 				alert("No hay opciones");

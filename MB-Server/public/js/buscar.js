@@ -48,7 +48,7 @@ function cargaropciones(){
 
 function cargarProyecto(idproyecto,nombre,info,actual,meta,imagen){
 	  var html = "<div class='col-lg-4 col-md-6 col-sm-6 col-xs-12' onclick='verProyecto("+idproyecto+")'>"+
-   					"<div class='panel panel-default'>"+
+   					"<div class='panel panel-default vista' >"+
 				      "<div class='panel-heading'><strong>"+nombre+"</strong></div>"+
 				     " <img src="+imagen+" class='img-responsive imgProyecto' alt='Responsive image'>"+
 				      "<div class='panel-body'>"+
