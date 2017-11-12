@@ -90,7 +90,6 @@ app.get("/proyect", function(peticion, respuesta){
 
 //POST CREAR USUARIO
 app.post("/registrar",urlEncodeParser,function(peticion, respuesta){
-	var a = "asd";
 	conexion.query("call mb_db.nuevo_usuario('"+peticion.body.usuario
 					+"', '"+peticion.body.nombre
 					+"', '"+peticion.body.apellido
@@ -103,6 +102,25 @@ app.post("/registrar",urlEncodeParser,function(peticion, respuesta){
 	conexion.query("select @ASD as ok", function(err,filas,campos){
 		if (err) throw err;
 	    	respuesta.send(JSON.stringify(filas[0].ok));
+	    	console.log(filas[0].ok);
+	    	var fs = require('fs')
+
+				   var path = 'public/img/User/generico.jpg'
+				   var newPath = 'public/img/User/'+filas[0].ok+'.jpg'
+
+				   var is = fs.createReadStream(path)
+				   var os = fs.createWriteStream(newPath)
+
+				   is.pipe(os)
+
+				   is.on('end', function() {
+				      //eliminamos el archivo temporal
+				      //fs.unlinkSync(path)
+					
+				   });
+
+
+
 		});
 
 	});
@@ -348,29 +366,20 @@ app.post("/actualizarMonto", urlEncodeParser, function(peticion, respuesta){
 
 
 app.post("/nuevo-proyecto",urlEncodeParser,function(peticion, respuesta){
-	var a = "asd";
-	console.log(peticion);
-	conexion.query("call mb_db.nuevo_Proyecto('"+peticion.body.usuario
-					+"', '"+peticion.body.nombre
-					+"', '"+peticion.body.descripcion
-					+"', '"+peticion.body.monto
-					+"', '"+peticion.body.fecha
-					+"', '"+peticion.body.categoria
-					+"', '"+peticion.body.face
-					+"', '"+peticion.body.twi
-					+"', '"+peticion.body.video
-					+"',@ASD)", function(err,filas,campos){
-		conexion.query("select @ASD as ok", function(err,filas,campos){
-		if (err) throw err;
-	    	respuesta.send(JSON.stringify(filas[0].ok));
-		});
-
+	conexion.query("insert into `mb_db`.`tbl_proyectos` (`Nombre_Proyecto`, `Descripcion`, `Monto_Meta`, `Monto_Recaudado`, `Fecha`, `Id_Categoria`, `Id_Usuario_Creador`, `facebook`, `twitter`, `url_video`,`activo`) VALUES("+
+					"? , ? , ? , '0' , ? , ? , ? , ? , ? , ? , '1' ) ",
+					[peticion.body.nombre,peticion.body.descripcion,peticion.body.monto,peticion.body.fecha,peticion.body.categoria,peticion.body.usuario,peticion.body.face
+					 ,peticion.body.twi,peticion.body.video],
+					 function(err,filas,campos){
+	    	respuesta.send(JSON.stringify(filas.insertId));
+	    	console.log("INSERTADO PROYECTO " + JSON.stringify(filas.insertId));
 	});
 });
 
 app.post("/subirimg", urlEncodeParser, function(peticion, respuesta){
 	conexion.query("INSERT INTO `mb_db`.`tbl_imagenes` (`Imagen`) VALUES ('1') ",
 			function(err, filas, campos){
+				console.log(err);
 				if (err) throw err;
 					var fs = require('fs')
 
@@ -387,12 +396,12 @@ app.post("/subirimg", urlEncodeParser, function(peticion, respuesta){
 				      fs.unlinkSync(path)
 					
 				   });
-
+				   console.log(JSON.stringify(filas.insertId));
 				   	conexion.query("INSERT INTO `mb_db`.`tbl_imagenes_x_proyecto` (`Id_Imagen`, `Id_Proyecto`) VALUES ("+JSON.stringify(filas.insertId)+", ?);",
-						[peticion.query.idproyimg],
+						[peticion.body.idproyimg],
 						function(err, filas, campos){
 							respuesta.send(JSON.stringify(filas));
-							console.log(filas);
+							console.log(err);
 						}
 					);
 				

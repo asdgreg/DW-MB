@@ -58,7 +58,7 @@ function verificacion(){
 						alert("Usuario Existente");
 					}else{
 						alert("Usuario Creado Exitosamente");
-						window.location.href = 'sesion.html';
+						window.location = '/sesion.html';
 					}
 				},
 				error: function(err){

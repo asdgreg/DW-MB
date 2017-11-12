@@ -67,6 +67,7 @@
 
 		        console.log(mensaje1)
 		        if(error == 0){
+					$('#mensaje3').html("");
 		         	return true;
 		        }else{
 		        	$('#mensaje1').html(mensaje1);
@@ -102,10 +103,12 @@
 			        	mensaje2 += "<tr><td>Formato incorrecto de www.youtube.com/ </td></tr>";
 			        }else{
 			        	$('#you').css("border-color","#ccc");
+
 			        }
 
 
 				if(error == 0){
+					$('#mensaje2').html("");
 		         	return true;
 		        }else{
 		        	$('#mensaje2').html(mensaje2);
@@ -160,6 +163,7 @@
 	 					    */    
 
 		        if(error == 0){
+					$('#mensaje3').html("");
 		         	return true;
 		        }else{
 		        	$('#mensaje3').html(mensaje3);

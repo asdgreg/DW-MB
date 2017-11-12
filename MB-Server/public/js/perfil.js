@@ -2,6 +2,7 @@ var activo = 0;
 var edicion = 0; 
 var id_edicion;
 var id_img;
+var reinicio = 0;
 $(document).ready(function(){
 	bloquear(1);
 	$.ajax({
@@ -17,7 +18,10 @@ $(document).ready(function(){
 				$("#usimagen").val(respuesta);
 					cargarDatos(respuesta);
 					cargarProy();
+
 			}else{
+				logout();
+				alert("dice que hay error" + respuesta);
 				window.location = "/sesion.html";
 			}
 		},
@@ -46,6 +50,8 @@ function cargarDatos(id){
 				$("#txt-ocupacion").val(respuesta[0].Ocupacion);
 				$("#user-img").attr("src", "img/User/"+id+".jpg");
 			}else{
+				alert("dice que hay error" + respuesta);
+				logout();
 				window.location = "/sesion.html";
 			}
 		},
@@ -73,7 +79,9 @@ function bloquear(int){
 function editarcrear(){
 		if(edicion == 1){
 			editseleccionado();
+
 		}else{
+
 			nuevo();
 		}
 }
@@ -146,8 +154,7 @@ $("#tbl-registros").html("");
 					
 				}
 			}else{
-				alert("ERROR EN CARGA");
-
+			console.log("sin proyectos");
 			}
 		},
 		error:function(e){
@@ -172,13 +179,21 @@ function agregarP(id,nombre, info,meta,actual,fecha){
 
 function nuevo(){
 
-var res = $("#datepicker").val().split("/");
-var fecha = res[1] +"/"+res[0]+"/"+res[2].substring(2, 4)
-alert($("#img-pro").val());
+	edicion = 0;
+	id_edicion = 0;
+	var res = $("#datepicker").val().split("/");
+	var fecha = res[1] +"/"+res[0]+"/"+res[2].substring(2, 4)
 
 
-var regurl = '^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$';
+var regurl = '(v=[a-zA-z0-9]*)|(e\\/[a-zA-Z0-9]*)';
 var regu = new RegExp(regurl);
+
+var youtube = "dfjhfsfkjnd";
+ if(regu.test($("#you").val())){
+	cortado =  regu.exec($("#you").val());
+ 	youtube = cortado[0].substring(2,cortado[0].length);
+ }
+
 
 			var parametros = "usuario="+$("#txt-usuario").val()
 							+"&nombre="+$("#nombre-pro").val()
@@ -186,9 +201,9 @@ var regu = new RegExp(regurl);
 							+"&monto="+$("#mon-pro").val()
 							+"&fecha="+fecha
 							+"&categoria=1"
-							+"&face="+$("#Facebook").val()
-							+"&twi="+$("#Twitter").val()
-							+"&video="+$("#Yotube").val();
+							+"&face="+$("#face").val()
+							+"&twi="+$("#twi").val()
+							+"&video="+youtube;
 							//+"&categoria="+$("#txt-usuario").val();
 
 			$.ajax({
@@ -197,9 +212,12 @@ var regu = new RegExp(regurl);
 				data: 	parametros,
 				dataType: "json",
 				success: function(respuesta){
-					if(respuesta == 1 ){
-						alert("Proyecto Creado");
-						window.location = "/perfil_cliente.html"
+					if(respuesta != "" ){
+						alert("Proyecto Creado " +  respuesta);
+						alert($("#idproyimg").val(respuesta));
+						guardarImagen();
+						reinicio = 1;
+						
 					}else{
 						alert("Error creando");
 					}
@@ -230,17 +248,13 @@ if(res[2].length > 2){
 }
 
 
-var regurl = '(v=[a-zA-z0-9]*)|(e\/[a-zA-Z0-9]*)';
+var regurl = '(v=[a-zA-z0-9]*)|(e\\/[a-zA-Z0-9]*)';
 var regu = new RegExp(regurl);
 
 var youtube = "dfjhfsfkjnd";
- if(regu2.test($("#you").val())){
-	var res = $("#you").val().split("(v=[a-zA-z0-9]*)|(e\/[a-zA-Z0-9]*)");
-	alert(" resultado cortado " + res);
-
- 	alert("se cumple " + $("#you").val().substring(2,$("#you").val().length));
- 	youtube = $("#you").val().substring(2,$("#you").val().length)
- 	alert(youtube);
+ if(regu.test($("#you").val())){
+	cortado =  regu.exec($("#you").val());
+ 	youtube = cortado[0].substring(2,cortado[0].length);
  }
 
 			var parametros = "nombre="+$("#nombre-pro").val()
@@ -251,7 +265,6 @@ var youtube = "dfjhfsfkjnd";
 							+"&video="+youtube
 							+"&id_pro="+id_edicion;
 							//+"&categoria="+$("#txt-usuario").val();
-console.log(parametros);
 			$.ajax({
 				url: 	"/editproyecto",
 				method: "POST",
@@ -274,6 +287,8 @@ console.log(parametros);
 
 function editProyecto(num){
 edicion = 1;
+			$("#btn-registrar-nuevo").attr("type", "hidden");
+			$("#btn-registrar-modificar").attr("type","button");
 id_edicion= num;
 		$.ajax({
 		url:"/vercompleto",
@@ -298,6 +313,8 @@ id_edicion= num;
 }
 
 function limpiar (){
+	$("#btn-registrar-modificar").attr("type", "hidden");
+	$("#btn-registrar-nuevo").attr("type","button");
 						$("#nombre-pro").val("");
 						$("#des-pro").val("");
 						$("#mon-pro").val("");
@@ -329,6 +346,9 @@ var data = new FormData(form);
 						console.log(respuesta);	
 						$("#archivo").val("");
 						alert("Imagen Actualizada!");
+						if(reinicio == 1){
+							window.location = "/perfil_cliente.html"
+						}
 				},
 				error:function(e){
 					alert("Error: " + JSON.stringify(e));
@@ -351,5 +371,7 @@ var data = new FormData(form);
 
 function subirimgnueva(id){
 	$("#idproyimg").val(id);
+	$("#btn-registrar-nuevo").attr("type", "hidden");
+	$("#btn-registrar-modificar").attr("type","button");
 
 }
