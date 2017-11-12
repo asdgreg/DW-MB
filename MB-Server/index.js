@@ -203,10 +203,11 @@ app.post("/topproyectoindex",urlEncodeParser,function(peticion, respuesta){
 		);
 });
 app.post("/search",urlEncodeParser,function(peticion, respuesta){
-			conexion.query("SELECT tbl_proyectos.Id_Proyecto,Nombre_Proyecto,Descripcion, Monto_Meta, Monto_Recaudado, fecha, tbl_imagenes.imagen,((monto_recaudado / Monto_meta)*100) as res FROM tbl_proyectos "+
+			conexion.query("SELECT tbl_proyectos.Id_Proyecto,Nombre_Proyecto,Descripcion, Monto_Meta, Monto_Recaudado, fecha, tbl_imagenes.id_Imagen,((monto_recaudado / Monto_meta)*100) as res FROM tbl_proyectos "+
 						"inner join tbl_imagenes_x_proyecto on tbl_imagenes_x_proyecto.Id_Proyecto = tbl_proyectos.Id_Proyecto "+
 						"inner join tbl_imagenes on tbl_imagenes_x_proyecto.id_imagen = tbl_imagenes.id_imagen "+
 						"WHERE nombre_proyecto LIKE '%"+peticion.body.search+"%' OR Descripcion LIKE '%"+peticion.body.search+"%' "+
+						"group by tbl_proyectos.Id_proyecto "+
 						"order by res DESC ",
 			function(err, filas, campos){
 				respuesta.send(JSON.stringify(filas));
